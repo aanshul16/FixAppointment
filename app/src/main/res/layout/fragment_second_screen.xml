@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.mmt5544.bookappointment.viewmodel.FirstScreenViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/font_lato_regular"
+            android:textSize="12sp"
+            app:bindText="@{viewModel.header}"
+            app:layout_constraintBottom_toBottomOf="@id/icon"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="@id/icon"
+            tools:text="Peninisula Diagnostic Imaging" />
+
+        <TextView
+            android:id="@+id/sub_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@string/font_lato_bold"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:bindText="@{viewModel.secondSubHeading}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            tools:text="Fill In your Info" />
+
+        <TextView
+            android:id="@+id/personal_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@string/font_lato_regular"
+            android:text="@string/default_personal_order"
+            app:layout_constraintStart_toStartOf="@id/sub_header"
+            app:layout_constraintTop_toBottomOf="@id/sub_header" />
+
+        <ImageView
+            android:id="@+id/perosnal_camera_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:onClickListener="@{viewModel::onClick}"
+            android:src="@drawable/camera_icon"
+            app:layout_constraintStart_toStartOf="@id/personal_id"
+            app:layout_constraintTop_toBottomOf="@id/personal_id" />
+
+        <ImageView
+            android:id="@+id/selected_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/perosnal_camera_icon"
+            app:layout_constraintStart_toEndOf="@id/perosnal_camera_icon"
+            app:layout_constraintTop_toTopOf="@id/perosnal_camera_icon"
+            app:setImageBitmap="@{viewModel.imageSelectedPersonal}" />
+
+        <TextView
+            android:id="@+id/first_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner_drawable"
+            android:fontFamily="@string/font_lato_regular"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{viewModel.firstName}"
+            app:layout_constraintEnd_toStartOf="@id/second_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/perosnal_camera_icon"
+            tools:text="@string/first_name" />
+
+        <TextView
+            android:id="@+id/second_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/spinner_drawable"
+            android:fontFamily="@string/font_lato_regular"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{viewModel.secondName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/first_name"
+            app:layout_constraintTop_toTopOf="@id/first_name"
+            tools:text="@string/second_name" />
+
+        <TextView
+            android:id="@+id/birth_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/spinner_drawable"
+            android:fontFamily="@string/font_lato_regular"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{viewModel.birthDate}"
+            app:layout_constraintEnd_toEndOf="@id/first_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/first_name"
+            tools:text="@string/birth_date" />
+
+        <ImageView
+            android:id="@+id/birth_date_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:onClickListener="@{viewModel::onClick}"
+            android:src="@drawable/date_icon"
+            app:layout_constraintBottom_toBottomOf="@id/birth_date"
+            app:layout_constraintStart_toEndOf="@id/birth_date"
+            app:layout_constraintTop_toTopOf="@id/birth_date" />
+
+        <TextView
+            android:id="@+id/req_appointment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/spinner_drawable"
+            android:fontFamily="@string/font_lato_regular"
+            android:gravity="center"
+            android:onClickListener="@{viewModel::onClick}"
+            android:padding="10dp"
+            android:text="@{viewModel.reqAppointment}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Request Appointment" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.mmt5544.bookappointment.viewmodel.FirstScreenViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/font_lato_regular"
+            android:textSize="12sp"
+            app:bindText="@{viewModel.header}"
+            app:layout_constraintBottom_toBottomOf="@id/icon"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="@id/icon"
+            tools:text="Peninisula Diagnostic Imaging" />
+
+        <TextView
+            android:id="@+id/sub_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@string/font_lato_bold"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:bindText="@{viewModel.subHeading}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            tools:text="Request an appointment" />
+
+        <TextView
+            android:id="@+id/clinic_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@string/font_lato_regular"
+            android:text="@string/clinic_text_val"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sub_header" />
+
+        <AutoCompleteTextView
+            android:id="@+id/clinicvalue"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/spinner_drawable"
+            android:drawableEnd="@drawable/ic_arrow_down_blue"
+            android:ellipsize="end"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:singleLine="true"
+            android:text="@string/default_city"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clinic_text"
+            app:setAdapter="@{viewModel.cityAdapter}"
+            app:setThreshold="@{viewModel.cityThreshold}" />
+
+        <TextView
+            android:id="@+id/examination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@string/font_lato_regular"
+            android:text="@string/default_exam"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clinicvalue" />
+
+        <AutoCompleteTextView
+            android:id="@+id/examinationvalue"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/spinner_drawable"
+            android:drawableEnd="@drawable/ic_arrow_down_blue"
+            android:ellipsize="end"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:singleLine="true"
+            android:text="@string/default_exam_value"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/examination"
+            app:setAdapter="@{viewModel.examAdapter}"
+            app:setThreshold="@{viewModel.examThreshold}" />
+
+        <TextView
+            android:id="@+id/in_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner_drawable"
+            android:fontFamily="@string/font_lato_regular"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{viewModel.date}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/examinationvalue"
+            tools:text="@string/date_request" />
+
+        <ImageView
+            android:id="@+id/btn_date_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:onClickListener="@{viewModel::onClick}"
+            android:src="@drawable/date_icon"
+            app:layout_constraintBottom_toBottomOf="@id/in_date"
+            app:layout_constraintStart_toEndOf="@id/in_date"
+            app:layout_constraintTop_toTopOf="@id/in_date" />
+
+        <TextView
+            android:id="@+id/time_requested"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@string/font_lato_regular"
+            android:text="@string/time_request"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/in_date" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/date_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/spinner_drawable"
+            android:drawableEnd="@drawable/ic_arrow_down_blue"
+            android:text="10 AM - 11 AM"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_requested"
+            app:setSpinnerAdapter="@{viewModel.timeAdapter}" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/spinner_drawable"
+            android:gravity="top|start"
+            android:hint="notes"
+            android:maxLength="100"
+            app:bindTextWatcher="@{viewModel.watcher}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_spinner" />
+
+        <TextView
+            android:id="@+id/doctors_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@string/font_lato_regular"
+            android:text="@string/default_doctors_order"
+            app:layout_constraintStart_toStartOf="@id/note"
+            app:layout_constraintTop_toBottomOf="@id/note" />
+
+        <ImageView
+            android:id="@+id/camera_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:onClickListener="@{viewModel::onClick}"
+            android:src="@drawable/camera_icon"
+            app:layout_constraintStart_toStartOf="@id/doctors_order"
+            app:layout_constraintTop_toBottomOf="@id/doctors_order" />
+
+        <ImageView
+            android:id="@+id/selected_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toEndOf="@id/camera_icon"
+            app:layout_constraintTop_toTopOf="@id/camera_icon"
+            app:setImageBitmap="@{viewModel.imageSelected}" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/next_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="5dp"
+            android:onClickListener="@{viewModel::onClick}"
+            android:text="@string/first_to_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/doctors_order" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

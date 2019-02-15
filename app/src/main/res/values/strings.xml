@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">BookAppointment</string>
+    <string name="title_activity_main">FixAppointment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Font-Names -->
+    <string name="font_lato_black">Lato-Black.ttf</string>
+    <string name="font_lato_bold">Lato-Bold.ttf</string>
+    <string name="font_lato_light">Lato-Light.ttf</string>
+    <string name="font_lato_medium">Lato-Medium.ttf</string>
+    <string name="font_lato_regular">Lato-Regular.ttf</string>
+    <string name="font_lato_semibold">Lato-Semibold.ttf</string>
+
+    <!-- first screen -->
+    <string name="first_heading">Peninisula Diagnostic Imaging</string>
+    <string name="subheading">Request an appointment</string>
+    <string name="secondSubheading">Fill In your Info</string>
+    <string name="date_request">Request Date</string>
+    <string name="birth_date">Date of Birth</string>
+    <string name="first_name">First Name</string>
+    <string name="second_name">Second Name</string>
+    <string name="time_request">Time Requested :</string>
+    <string name="clinic_text_val">Clinic location:</string>
+    <string name="default_city">MUMBAI</string>
+    <string name="default_exam">Exam:</string>
+    <string name="default_exam_value">MRI</string>
+    <string name="default_doctors_order">Have a doctor\'s order ? Send us pics:</string>
+    <string name="default_personal_order">Send us an ID (Aadhar Card)</string>
+    <string name="first_to_next">Next</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="add_photo">Add Photo!!!</string>
+    <string name="cancel_dialog">Cancel</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="choose_photo">Choose from Library</string>
+    <string name="request_apptmnt">Request Appointment</string>
+</resources>
