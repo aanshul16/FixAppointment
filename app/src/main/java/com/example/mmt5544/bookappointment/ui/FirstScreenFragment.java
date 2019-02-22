@@ -11,6 +11,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,8 @@ public class FirstScreenFragment extends BaseFragment implements Observer<String
 
         if (location != null) {
             onLocationChanged(location);
+        } else {
+            firstScreenViewModel.setAddress(cityName[0]);
         }
     }
 
@@ -135,6 +138,7 @@ public class FirstScreenFragment extends BaseFragment implements Observer<String
         try {
             List<Address> address = geoCoder.getFromLocation(lat, lng, 1);
             String adminLocation = address.get(0).getAdminArea();
+            Log.i("Anshul", "Inside onLocationChanged" + adminLocation);
             if (adminLocation != null && !adminLocation.isEmpty()) {
                 firstScreenViewModel.setAddress(adminLocation);
             }

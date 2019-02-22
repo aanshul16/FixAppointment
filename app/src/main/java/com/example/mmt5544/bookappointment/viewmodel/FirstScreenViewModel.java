@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import com.example.mmt5544.bookappointment.R;
 import com.example.mmt5544.bookappointment.util.AppConstants;
 
+import java.io.Serializable;
+
 public class FirstScreenViewModel extends ViewModel {
     private String header;
     private String subHeading;
